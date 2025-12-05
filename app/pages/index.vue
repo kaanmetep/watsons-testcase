@@ -1,7 +1,8 @@
 <template>
   <div>
-    <TopNav />
-    <Header />
+    <SharedTopNav />
+    <SharedHeader />
+    <HomeHero />
   </div>
 </template>
 

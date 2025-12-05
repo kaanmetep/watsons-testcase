@@ -14,6 +14,9 @@ export default {
         roboto: ["Roboto", "sans-serif"],
         rubik: ["Rubik", "sans-serif"],
       },
+      colors: {
+        primary: "#FF27AD",
+      },
     },
   },
   plugins: [],
