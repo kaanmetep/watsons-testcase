@@ -3,6 +3,7 @@
     <SharedTopNav />
     <SharedHeader />
     <HomeHero />
+    <HomeFeaturedProducts />
   </div>
 </template>
 
