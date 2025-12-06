@@ -35,5 +35,5 @@ interface Props {
   image: string;
   price?: number;
 }
-const props = defineProps<Props>();
+defineProps<Props>();
 </script>

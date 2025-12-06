@@ -4,6 +4,8 @@
     <SharedHeader />
     <HomeHero />
     <HomeFeaturedProducts />
+    <HomePromoBanner />
+    <HomeFeaturedCategories />
   </div>
 </template>
 

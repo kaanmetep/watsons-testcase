@@ -1,15 +1,6 @@
 <template>
   <div class="p-4 gap-4">
-    <div class="flex gap-8 items-center justify-between">
-      <div class="h-[1px] flex-1 bg-[#0099A81A]"></div>
-      <h3
-        class="text-secondary font-medium font-roboto text-[20px] whitespace-nowrap"
-      >
-        Featured products
-      </h3>
-
-      <div class="h-[1px] flex-1 bg-[#0099A81A]"></div>
-    </div>
+    <SharedSectionTitle title="Featured products" />
     <div v-if="pending" class="flex justify-center items-center py-8">
       Loading...
     </div>
@@ -20,7 +11,7 @@
       Error loading products
     </div>
     <div v-else class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
-      <HomeCard
+      <HomeFeaturedProductCard
         v-for="product in data?.products"
         :key="product.id"
         :image="product.thumbnail || product.images?.[0] || ''"
