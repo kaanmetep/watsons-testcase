@@ -82,14 +82,14 @@
       </div>
     </div>
     <!-- Navigation Menu -->
-    <div class="hidden lg:block w-full">
+    <div class="hidden lg:flex w-full h-[48px] items-center justify-center">
       <div class="w-full max-w-[1160px] mx-auto">
         <nav class="flex items-center justify-between">
           <a
             v-for="item in menuItems"
             :key="item"
             href="#"
-            class="text-[#2A2A48] font-roboto text-[14px] font-bold uppercase py-4 cursor-pointer"
+            class="text-[#2A2A48] font-roboto text-[14px] font-bold uppercase px-4 cursor-pointer hover:bg-[#ECECEC4D] rounded-t-[4px] transition-colors duration-[60ms]"
           >
             {{ item }}
           </a>

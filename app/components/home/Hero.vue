@@ -2,13 +2,13 @@
   <div class="hero-wrapper w-full flex flex-col relative">
     <!-- Left Chevron -->
     <button
-      class="hidden xl:block absolute left-[44px] top-1/2 -translate-y-1/2 z-10 cursor-pointer"
+      class="hidden xl:block absolute left-[44px] top-1/2 -translate-y-1/2 z-10 cursor-pointer hover:bg-[#ECECEC] rounded-full transition-colors duration-[60ms]"
     >
       <img src="/assets/ChevronGray.png" alt="previous" class="w-12 h-12" />
     </button>
     <!-- Right Chevron -->
     <button
-      class="hidden xl:block absolute right-[44px] top-1/2 -translate-y-1/2 z-10 cursor-pointer"
+      class="hidden xl:block absolute right-[44px] top-1/2 -translate-y-1/2 z-10 cursor-pointer hover:bg-[#ECECEC] rounded-full transition-colors duration-[60ms]"
     >
       <img src="/assets/ChevronBlack.png" alt="next" class="w-12 h-12" />
     </button>
@@ -46,7 +46,7 @@
             fresh.
           </p>
           <button
-            class="uppercase bg-primary h-[32px] rounded-[4px] px-4 text-white font-bold text-[14px] font-roboto sm:w-fit"
+            class="uppercase bg-primary hover:bg-primary-dark h-[32px] rounded-[4px] px-4 text-white font-bold text-[14px] font-roboto sm:w-fit transition-colors duration-[60ms]"
           >
             Shop Now
           </button>

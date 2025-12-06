@@ -7,13 +7,13 @@
     >
       <div class="flex gap-2 text-white">
         <div
-          class="flex items-center justify-center gap-2 font-roboto font-medium text-[14px] px-4 cursor-pointer"
+          class="flex items-center justify-center gap-2 font-roboto font-medium text-[14px] px-4 cursor-pointer hover:bg-[#FFFFFF33] transition-colors duration-[60ms] rounded-[4px]"
         >
           <img src="/assets/StoresIcon.png" alt="logo" width="18" height="14" />
           <p>Stores</p>
         </div>
         <div
-          class="flex items-center justify-center gap-2 font-roboto font-medium text-[14px] px-4 cursor-pointer"
+          class="flex items-center justify-center gap-2 font-roboto font-medium text-[14px] px-4 cursor-pointer hover:bg-[#FFFFFF33] transition-colors duration-[60ms] rounded-[4px]"
         >
           <img
             src="/assets/CatalogIcon.png"

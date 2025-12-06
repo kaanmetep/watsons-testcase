@@ -22,7 +22,7 @@
           class="flex-1 md:flex-none md:w-[412px] h-[48px] p-4 rounded-[4px] border border-[#ECECEC] bg-white text-[16px] font-roboto placeholder:text-[#2A2A4899] font-normal"
         />
         <button
-          class="bg-primary text-white font-bold font-roboto text-[14px] uppercase px-4 rounded-[4px] whitespace-nowrap"
+          class="bg-primary hover:bg-primary-dark text-white font-bold font-roboto text-[14px] uppercase px-4 rounded-[4px] whitespace-nowrap transition-colors duration-[60ms]"
         >
           SUBSCRIBE
         </button>
@@ -58,7 +58,7 @@
           </h2>
         </div>
         <button
-          class="bg-secondary text-white font-bold font-roboto text-[14px] uppercase px-4 rounded-[4px] h-[32px] w-fit"
+          class="bg-secondary hover:bg-secondary-dark text-white font-bold font-roboto text-[14px] uppercase px-4 rounded-[4px] h-[32px] w-fit transition-colors duration-[60ms] cursor-pointer relative z-[4]"
         >
           SHOP NOW
         </button>

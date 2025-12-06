@@ -23,7 +23,7 @@
           {{ description }}
         </p>
         <button
-          class="bg-secondary text-white font-bold font-roboto text-[14px] uppercase px-4 rounded-[4px] h-[32px]"
+          class="bg-secondary hover:bg-secondary-dark text-white font-bold font-roboto text-[14px] uppercase px-4 rounded-[4px] h-[32px] transition-colors duration-[60ms]"
         >
           BROWSE
         </button>
