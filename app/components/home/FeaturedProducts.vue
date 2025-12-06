@@ -1,23 +1,28 @@
 <template>
-  <div class="p-4 gap-4">
-    <SharedSectionTitle title="Featured products" />
-    <div v-if="pending" class="flex justify-center items-center py-8">
-      Loading...
-    </div>
-    <div
-      v-else-if="error"
-      class="flex justify-center items-center py-8 text-red-500"
-    >
-      Error loading products
-    </div>
-    <div v-else class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
-      <HomeFeaturedProductCard
-        v-for="product in data?.products"
-        :key="product.id"
-        :image="product.thumbnail || product.images?.[0] || ''"
-        :title="product.title"
-        :price="product.price"
-      />
+  <div class="w-full p-4 sm:py-10 gap-4 flex flex-col items-center">
+    <div class="w-full max-w-[1160px]">
+      <SharedSectionTitle title="Featured products" />
+      <div v-if="pending" class="flex justify-center items-center py-8">
+        Loading...
+      </div>
+      <div
+        v-else-if="error"
+        class="flex justify-center items-center py-8 text-red-500"
+      >
+        Error loading products
+      </div>
+      <div
+        v-else
+        class="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-10 mt-4 items-stretch"
+      >
+        <HomeFeaturedProductCard
+          v-for="product in data?.products"
+          :key="product.id"
+          :image="product.thumbnail || product.images?.[0] || ''"
+          :title="product.title"
+          :price="product.price"
+        />
+      </div>
     </div>
   </div>
 </template>

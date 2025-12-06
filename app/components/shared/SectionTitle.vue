@@ -2,7 +2,7 @@
   <div class="flex gap-8 items-center justify-between">
     <div class="h-[1px] flex-1 bg-[#0099A81A]"></div>
     <h3
-      class="text-secondary font-medium font-roboto text-[20px] whitespace-nowrap"
+      class="text-secondary font-medium font-roboto text-[20px] sm:text-[24px] whitespace-nowrap"
     >
       {{ title }}
     </h3>

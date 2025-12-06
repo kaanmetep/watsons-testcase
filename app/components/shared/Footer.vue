@@ -1,24 +1,84 @@
 <template>
-  <footer class="flex flex-col gap-6 p-4 bg-white">
-    <!-- Links -->
-    <SharedMobileAccordion :items="accordionItems" />
-    <!-- Socials -->
-    <div class="flex gap-6 items-center justify-center">
-      <img
-        v-for="social in socials"
-        :key="social.url"
-        :src="social.image"
-        :alt="social.url"
-        class="w-8 h-8 cursor-pointer"
-      />
+  <footer
+    class="w-full flex flex-col gap-6 p-4 md:py-12 md:gap-8 bg-white items-center"
+  >
+    <div class="w-full max-w-[1160px] flex flex-col gap-6">
+      <!-- Mobile Section -->
+      <div class="flex flex-col gap-6 md:hidden">
+        <SharedMobileAccordion :items="accordionItems" />
+        <!-- Socials -->
+        <div class="flex gap-6 items-center justify-center">
+          <img
+            v-for="social in socials"
+            :key="social.url"
+            :src="social.image"
+            :alt="social.url"
+            class="w-8 h-8 cursor-pointer"
+          />
+        </div>
+        <!-- Copyright Text -->
+        <p
+          class="text-[#8493A8] font-medium font-roboto text-[10px] text-center"
+        >
+          © WATSONS 2021 ALL RIGHTS RESERVED<br />
+          A MEMBER OF CK HUTCHISON HOLDINGS
+        </p>
+      </div>
+      <!-- Desktop Columns (visible only on md-768px- and above) -->
+      <div class="hidden md:grid md:grid-cols-[1fr_1fr_1fr_1fr_2fr] gap-10">
+        <div
+          v-for="(item, index) in accordionItems"
+          :key="index"
+          class="flex flex-col gap-10"
+        >
+          <h3
+            class="font-medium font-roboto text-[12px] text-[#2A2A48] uppercase"
+          >
+            {{ item.title }}
+          </h3>
+          <ul class="flex flex-col gap-4">
+            <li v-for="(link, linkIndex) in item.links" :key="linkIndex">
+              <a
+                href="#"
+                :class="[
+                  'font-normal font-roboto text-[12px] text-[#485363] flex items-start gap-2',
+                  item.title === 'CONTACT US' ? 'max-w-none' : '',
+                ]"
+              >
+                <img
+                  v-if="item.title === 'CONTACT US'"
+                  :src="getContactIcon(linkIndex)"
+                  :alt="getContactIconAlt(linkIndex)"
+                  class="w-4 h-4 mt-0.5 flex-shrink-0"
+                />
+                <span class="break-words">{{ link }}</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Desktop Bottom Section -->
+      <div
+        class="hidden md:flex md:flex-row md:items-center md:justify-between gap-4 pt-4"
+      >
+        <!-- Desktop Copyright Text -->
+        <p
+          class="text-[#8493A8] font-medium font-roboto text-[10px] text-center"
+        >
+          © WATSONS 2021 ALL RIGHTS RESERVED | A MEMBER OF CK HUTCHISON HOLDINGS
+        </p>
+        <!-- Desktop Socials -->
+        <div class="flex gap-6 items-center justify-end">
+          <img
+            v-for="social in socials"
+            :key="social.url"
+            :src="social.image"
+            :alt="social.url"
+            class="w-8 h-8 cursor-pointer"
+          />
+        </div>
+      </div>
     </div>
-    <!-- Copyright Text -->
-    <p
-      class="text-[#8493A8] font-medium font-roboto text-[12px] text-center uppercase"
-    >
-      © Watsons 2021 all rıghts reserved <br />
-      a member of ck hutchıson holdıngs
-    </p>
   </footer>
 </template>
 
@@ -81,4 +141,18 @@ const socials = [
     url: "https://www.linkedin.com/watsons.com.tr",
   },
 ];
+
+const getContactIcon = (index: number) => {
+  const icons = [
+    "/assets/LocationIcon.png",
+    "/assets/FooterPhoneIcon.png",
+    "/assets/MailIcon.png",
+  ];
+  return icons[index] || "";
+};
+
+const getContactIconAlt = (index: number) => {
+  const alts = ["location", "phone", "mail"];
+  return alts[index] || "";
+};
 </script>

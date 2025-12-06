@@ -1,6 +1,10 @@
 <template>
-  <div class="h-[32px] w-full bg-[#505357] flex items-center">
-    <div class="px-4 h-[30px] flex items-center justify-between w-full">
+  <div
+    class="h-[32px] md:h-[40px] w-full bg-[#505357] flex items-center justify-center"
+  >
+    <div
+      class="w-full max-w-[1160px] px-4 lg:px-0 h-[30px] flex items-center justify-between"
+    >
       <div class="flex gap-2 text-white">
         <div
           class="flex items-center justify-center gap-2 font-roboto font-medium text-[14px] px-4 cursor-pointer"
@@ -20,13 +24,23 @@
           <p>Catalog</p>
         </div>
       </div>
-      <img
-        src="/assets/PhoneIcon.png"
-        alt="user"
-        width="24"
-        height="24"
-        class="cursor-pointer"
-      />
+      <p
+        class="hidden lg:block text-[#ECECEC80] font-normal text-[14px] font-roboto"
+      >
+        Watsons Beauty and Personal Care Awards Nominees!
+      </p>
+      <div class="flex items-center gap-2">
+        <p class="font-medium text-[14px] text-white hidden sm:block">
+          Call us:(+90) 850 123 45 67
+        </p>
+        <img
+          src="/assets/PhoneIcon.png"
+          alt="user"
+          width="24"
+          height="24"
+          class="cursor-pointer"
+        />
+      </div>
     </div>
   </div>
 </template>

@@ -1,16 +1,18 @@
 <template>
-  <div class="p-4 gap-4">
-    <SharedSectionTitle title="Featured categories" />
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 justify-items-center"
-    >
-      <HomeFeaturedCategoryCard
-        v-for="(category, index) in categories"
-        :key="index"
-        :image="category.image"
-        :title="category.title"
-        :description="category.description"
-      />
+  <div class="w-full p-4 sm:py-10 gap-4 flex flex-col items-center">
+    <div class="flex flex-col lg:gap-10 w-full max-w-[760px]">
+      <SharedSectionTitle title="Featured categories" />
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-10 justify-items-center"
+      >
+        <HomeFeaturedCategoryCard
+          v-for="(category, index) in categories"
+          :key="index"
+          :image="category.image"
+          :title="category.title"
+          :description="category.description"
+        />
+      </div>
     </div>
   </div>
 </template>
