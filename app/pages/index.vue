@@ -6,6 +6,7 @@
     <HomeFeaturedProducts />
     <HomePromoBanner />
     <HomeFeaturedCategories />
+    <SharedFooter />
   </div>
 </template>
 
