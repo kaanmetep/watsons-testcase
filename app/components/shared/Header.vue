@@ -77,6 +77,7 @@
             width="32"
             height="32"
             class="cursor-pointer lg:hidden"
+            @click="openMenu"
           />
         </div>
       </div>
@@ -96,6 +97,8 @@
         </nav>
       </div>
     </div>
+    <!-- Mobile Menu -->
+    <SharedMobileMenu :is-open="isMobileMenuOpen" @close="closeMenu" />
   </div>
 </template>
 <script setup lang="ts">
@@ -109,4 +112,14 @@ const menuItems = [
   "Healthy Life",
   "Brands",
 ];
+
+const isMobileMenuOpen = ref(false);
+
+const openMenu = () => {
+  isMobileMenuOpen.value = true;
+};
+
+const closeMenu = () => {
+  isMobileMenuOpen.value = false;
+};
 </script>

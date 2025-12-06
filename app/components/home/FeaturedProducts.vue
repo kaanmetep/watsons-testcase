@@ -1,6 +1,6 @@
 <template>
-  <div class="w-full p-4 sm:py-10 gap-4 flex flex-col items-center">
-    <div class="w-full max-w-[1160px]">
+  <div class="w-full p-4 sm:py-10 flex flex-col items-center">
+    <div class="w-full max-w-[1160px] sm:gap-10 flex flex-col">
       <SharedSectionTitle title="Featured products" />
       <div v-if="pending" class="flex justify-center items-center py-8">
         Loading...

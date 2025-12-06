@@ -2,13 +2,13 @@
   <div class="hero-wrapper w-full flex flex-col relative">
     <!-- Left Chevron -->
     <button
-      class="hidden xl:block absolute left-[44px] top-1/2 -translate-y-1/2 z-10 cursor-pointer hover:bg-[#ECECEC] rounded-full transition-colors duration-[60ms]"
+      class="hidden xl:flex absolute left-[44px] top-1/2 -translate-y-1/2 z-10 cursor-pointer hover:bg-[#ECECEC] rounded-full transition-colors duration-[60ms] items-center justify-center"
     >
       <img src="/assets/ChevronGray.png" alt="previous" class="w-12 h-12" />
     </button>
     <!-- Right Chevron -->
     <button
-      class="hidden xl:block absolute right-[44px] top-1/2 -translate-y-1/2 z-10 cursor-pointer hover:bg-[#ECECEC] rounded-full transition-colors duration-[60ms]"
+      class="hidden xl:flex absolute right-[44px] top-1/2 -translate-y-1/2 z-10 cursor-pointer hover:bg-[#ECECEC] rounded-full transition-colors duration-[60ms] items-center justify-center"
     >
       <img src="/assets/ChevronBlack.png" alt="next" class="w-12 h-12" />
     </button>
