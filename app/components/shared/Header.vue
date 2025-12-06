@@ -11,6 +11,7 @@
           width="120"
           height="24.15"
           class="cursor-pointer flex-shrink-0"
+          @click="goToHome"
         />
         <!-- Right Side -->
         <div class="flex items-center gap-4 lg:gap-6 ml-auto flex-shrink-0">
@@ -69,6 +70,7 @@
             width="25"
             height="56"
             class="cursor-pointer"
+            @click="goToCheckout"
           />
           <!-- Menu Icon (mobile only) -->
           <img
@@ -97,7 +99,6 @@
         </nav>
       </div>
     </div>
-    <!-- Mobile Menu -->
     <SharedMobileMenu :is-open="isMobileMenuOpen" @close="closeMenu" />
   </div>
 </template>
@@ -121,5 +122,13 @@ const openMenu = () => {
 
 const closeMenu = () => {
   isMobileMenuOpen.value = false;
+};
+
+const goToCheckout = () => {
+  navigateTo("/checkout");
+};
+
+const goToHome = () => {
+  navigateTo("/");
 };
 </script>

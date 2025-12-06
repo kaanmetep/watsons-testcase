@@ -18,6 +18,7 @@
         <HomeFeaturedProductCard
           v-for="product in data?.products"
           :key="product.id"
+          :id="product.id"
           :image="product.thumbnail || product.images?.[0] || ''"
           :title="product.title"
           :price="product.price"

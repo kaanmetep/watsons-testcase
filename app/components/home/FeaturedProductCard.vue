@@ -8,7 +8,7 @@
         :alt="title"
         class="w-full aspect-[3/4] lg:aspect-[3/2] object-contain"
       />
-      <!-- Hover Buttons (bottom of image div) -->
+      <!-- Hover Buttons -->
       <div
         class="hidden sm:flex absolute bottom-0 left-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-[60ms] ease-in-out bg-[#000000CC] items-center justify-center h-[48px] gap-4"
       >
@@ -26,6 +26,7 @@
         </button>
         <div class="w-[1px] h-[16px] bg-white/20"></div>
         <button
+          @click.stop="handleAddToCart"
           class="flex items-center justify-center gap-2 hover:bg-[#FFFFFF33] transition-colors duration-[60ms] px-4 rounded-[4px]"
         >
           <img
@@ -54,6 +55,7 @@
     <div class="h-[1px] bg-[#ECECEC] sm:hidden"></div>
     <div class="p-4 flex justify-center sm:hidden">
       <button
+        @click.stop="handleAddToCart"
         class="uppercase bg-primary hover:bg-primary-dark px-16 rounded-[4px] h-[32px] text-white text-[14px] font-roboto font-bold flex items-center justify-center gap-2 transition-colors duration-[60ms]"
       >
         <img
@@ -69,9 +71,23 @@
 
 <script setup lang="ts">
 interface Props {
+  id: number;
   title: string;
   image: string;
   price?: number;
 }
-defineProps<Props>();
+const props = defineProps<Props>();
+
+const { addToCart } = useCart();
+
+const handleAddToCart = () => {
+  if (props.price !== undefined) {
+    addToCart({
+      id: props.id,
+      title: props.title,
+      price: props.price,
+      image: props.image,
+    });
+  }
+};
 </script>
