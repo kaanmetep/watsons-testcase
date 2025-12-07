@@ -39,7 +39,17 @@
       />
     </button>
     <div
-      class="w-full max-w-[1160px] mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between"
+      :class="[
+        'w-full max-w-[1160px] mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between select-none',
+        isDragging ? 'cursor-grabbing' : 'cursor-grab',
+      ]"
+      @touchstart="handleStart"
+      @touchmove="handleTouchMove"
+      @touchend="handleEnd"
+      @mousedown="handleStart"
+      @mousemove="handleMove"
+      @mouseup="handleEnd"
+      @mouseleave="handleEnd"
     >
       <!-- RIGHT SIDE (mobile: top, desktop: right) -->
       <div class="p-4 sm:p-0 flex justify-center sm:order-2">
@@ -99,6 +109,9 @@
 const currentSlide = ref(0);
 const totalSlides = 3;
 
+const startX = ref(0);
+const isDragging = ref(false);
+
 const nextSlide = () => {
   currentSlide.value = (currentSlide.value + 1) % totalSlides;
 };
@@ -110,6 +123,49 @@ const previousSlide = () => {
 
 const goToSlide = (index: number) => {
   currentSlide.value = index;
+};
+
+const getClientX = (e: TouchEvent | MouseEvent): number => {
+  if (e instanceof TouchEvent) {
+    return e.touches[0]?.clientX || e.changedTouches[0]?.clientX || 0;
+  }
+  return (e as MouseEvent).clientX;
+};
+
+const handleStart = (e: TouchEvent | MouseEvent) => {
+  isDragging.value = true;
+  startX.value = getClientX(e);
+};
+
+const handleMove = (e: MouseEvent) => {
+  if (!isDragging.value) return;
+  e.preventDefault();
+};
+
+const handleTouchMove = (e: TouchEvent) => {
+  if (!isDragging.value) return;
+  // Only prevent if we're actually dragging (horizontal movement)
+  const currentX = e.touches[0]?.clientX || 0;
+  const diff = Math.abs(startX.value - currentX);
+  if (diff > 10) {
+    e.preventDefault();
+  }
+};
+
+const handleEnd = (e: TouchEvent | MouseEvent) => {
+  if (!isDragging.value) return;
+  isDragging.value = false;
+
+  const endX = getClientX(e);
+  const diff = startX.value - endX;
+
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) {
+      nextSlide();
+    } else {
+      previousSlide();
+    }
+  }
 };
 </script>
 

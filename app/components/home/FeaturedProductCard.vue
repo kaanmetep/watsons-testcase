@@ -1,8 +1,10 @@
 <template>
   <div
-    class="bg-white rounded-[6px] border border-[#ECECEC]/50 shadow-[0px_1px_8px_0px_rgba(0,0,0,0.04)] w-full h-full flex flex-col overflow-hidden group cursor-pointer"
+    class="bg-white rounded-[6px] border border-[#ECECEC]/50 shadow-[0px_1px_8px_0px_rgba(0,0,0,0.04)] w-full h-full flex flex-col group cursor-pointer"
   >
-    <div class="bg-[#ECECEC29] p-4 sm:p-0 relative">
+    <div
+      class="bg-[#ECECEC29] p-4 sm:p-0 relative overflow-hidden rounded-t-[6px]"
+    >
       <img
         :src="image"
         :alt="title"
@@ -10,21 +12,22 @@
       />
       <!-- Hover Buttons -->
       <div
-        class="hidden sm:flex absolute bottom-0 left-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-[60ms] ease-in-out bg-[#000000CC] items-center justify-center h-[48px] gap-4"
+        class="hidden sm:flex absolute bottom-0 left-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-[60ms] ease-in-out bg-[#000000CC] items-center justify-center h-[48px] w-full"
       >
         <button
-          class="flex items-center justify-center gap-2 hover:bg-[#FFFFFF33] transition-colors duration-[60ms] px-4 rounded-[4px]"
+          class="flex items-center justify-center gap-2 hover:bg-[#FFFFFF33] transition-colors duration-[60ms] px-4 rounded-[4px] whitespace-nowrap"
         >
           <img
             src="/assets/EyeIcon.png"
             alt="quick view"
-            class="w-4 h-[14px] brightness-0 invert"
+            class="w-4 brightness-0 invert"
           />
-          <span class="text-[14px] font-roboto font-medium text-white"
+          <span
+            class="text-[14px] font-roboto font-medium text-white whitespace-nowrap"
             >Quick View</span
           >
         </button>
-        <div class="w-[1px] h-[16px] bg-white/20"></div>
+        <div class="w-[32px] h-[0.5px] bg-[#ECECEC] opacity-20 rotate-90"></div>
         <button
           @click.stop="handleAddToCart"
           class="flex items-center justify-center gap-2 hover:bg-[#FFFFFF33] transition-colors duration-[60ms] px-4 rounded-[4px]"
@@ -41,7 +44,7 @@
       </div>
     </div>
 
-    <div class="p-4 sm:p-8 gap-2 flex flex-col flex-grow">
+    <div class="p-4 sm:p-8 gap-2 flex flex-col flex-grow min-h-0">
       <h4
         class="font-bold font-roboto text-[16px] sm:text-[20px] text-[#2A2A48] uppercase"
       >
@@ -52,11 +55,11 @@
       </p>
     </div>
     <!-- Mobile ADD Button -->
-    <div class="h-[1px] bg-[#ECECEC] sm:hidden"></div>
-    <div class="p-4 flex justify-center sm:hidden">
+    <div class="h-[1px] bg-[#ECECEC] sm:hidden flex-shrink-0"></div>
+    <div class="p-4 flex justify-center sm:hidden flex-shrink-0">
       <button
         @click.stop="handleAddToCart"
-        class="uppercase bg-primary hover:bg-primary-dark px-16 rounded-[4px] h-[32px] text-white text-[14px] font-roboto font-bold flex items-center justify-center gap-2 transition-colors duration-[60ms]"
+        class="uppercase bg-primary hover:bg-primary-dark w-full rounded-[4px] h-[32px] text-white text-[14px] font-roboto font-bold flex items-center justify-center gap-2 transition-colors duration-[60ms]"
       >
         <img
           src="/assets/AddToCartIcon.png"

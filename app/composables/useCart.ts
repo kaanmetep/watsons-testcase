@@ -9,14 +9,14 @@ export interface CartItem {
 export const useCart = () => {
   const cartItems = useState<CartItem[]>("cart", () => [
     {
-      id: 1,
+      id: 100,
       name: "Herbal Science Boom Butter Hair Care Oil 190ml",
       price: 44.95,
       qty: 1,
       image: "/assets/Checkout1.png",
     },
     {
-      id: 2,
+      id: 101,
       name: "Ashley Joy Strengthening Shampoo 400ml",
       price: 29.45,
       qty: 1,

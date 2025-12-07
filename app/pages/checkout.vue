@@ -278,7 +278,7 @@
                     <div class="flex justify-between items-center">
                       <span
                         class="text-[14px] font-normal text-[#485363] font-roboto"
-                        >{{ item.price.toFixed(2) }} TL</span
+                        >{{ (item.price * item.qty).toFixed(2) }} TL</span
                       >
                       <div class="flex items-center gap-2">
                         <button

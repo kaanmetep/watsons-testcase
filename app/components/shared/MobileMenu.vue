@@ -119,6 +119,22 @@ const closeMenu = () => {
   emit("close");
 };
 
+// Prevent body scroll when menu is open
+watch(
+  () => props.isOpen,
+  (isOpen) => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }
+);
+
+onUnmounted(() => {
+  document.body.style.overflow = "";
+});
+
 const menuItems: MenuItem[] = [
   {
     title: "Campaigns",
