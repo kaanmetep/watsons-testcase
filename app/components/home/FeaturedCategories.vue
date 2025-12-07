@@ -1,6 +1,6 @@
 <template>
   <div class="w-full p-4 sm:py-10 gap-4 flex flex-col items-center">
-    <div class="flex flex-col lg:gap-10 w-full max-w-[760px]">
+    <div class="flex flex-col gap-4 lg:gap-10 w-full max-w-[760px]">
       <SharedSectionTitle title="Featured categories" />
       <div
         class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-10 justify-items-center"

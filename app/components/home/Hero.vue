@@ -2,15 +2,41 @@
   <div class="hero-wrapper w-full flex flex-col relative">
     <!-- Left Chevron -->
     <button
-      class="hidden xl:flex absolute left-[44px] top-1/2 -translate-y-1/2 z-10 cursor-pointer hover:bg-[#ECECEC] rounded-full transition-colors duration-[60ms] items-center justify-center"
+      @click="previousSlide"
+      :disabled="currentSlide === 0"
+      class="hidden xl:flex absolute left-[44px] top-1/2 -translate-y-1/2 z-10 cursor-pointer hover:bg-[#ECECEC] rounded-full transition-colors duration-[60ms] items-center justify-center disabled:cursor-not-allowed disabled:opacity-50"
     >
-      <img src="/assets/ChevronGray.png" alt="previous" class="w-12 h-12" />
+      <img
+        :src="
+          currentSlide === 0
+            ? '/assets/ChevronGray.png'
+            : '/assets/ChevronBlack.png'
+        "
+        alt="previous"
+        :class="[
+          'w-12 h-12 transition-transform duration-[60ms]',
+          currentSlide === 0 ? '' : 'rotate-180',
+        ]"
+      />
     </button>
     <!-- Right Chevron -->
     <button
-      class="hidden xl:flex absolute right-[44px] top-1/2 -translate-y-1/2 z-10 cursor-pointer hover:bg-[#ECECEC] rounded-full transition-colors duration-[60ms] items-center justify-center"
+      @click="nextSlide"
+      :disabled="currentSlide === totalSlides - 1"
+      class="hidden xl:flex absolute right-[44px] top-1/2 -translate-y-1/2 z-10 cursor-pointer hover:bg-[#ECECEC] rounded-full transition-colors duration-[60ms] items-center justify-center disabled:cursor-not-allowed disabled:opacity-50"
     >
-      <img src="/assets/ChevronBlack.png" alt="next" class="w-12 h-12" />
+      <img
+        :src="
+          currentSlide === totalSlides - 1
+            ? '/assets/ChevronGray.png'
+            : '/assets/ChevronBlack.png'
+        "
+        alt="next"
+        :class="[
+          'w-12 h-12 transition-transform duration-[60ms]',
+          currentSlide === totalSlides - 1 ? 'rotate-180' : '',
+        ]"
+      />
     </button>
     <div
       class="w-full max-w-[1160px] mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between"
@@ -33,7 +59,7 @@
               Naturals By Watsons
             </h6>
             <h2
-              class="font-bold text-[24px] sm:text-[34px] tracking-[-0.2px] font-rubik text-[#2A2A48]"
+              class="font-bold text-[24px] sm:text-[34px] font-rubik text-[#2A2A48]"
             >
               The new 2021 collection
             </h2>
@@ -52,12 +78,16 @@
           </button>
         </div>
         <div class="flex items-center justify-center sm:justify-start gap-2">
-          <div class="w-2 h-2 rounded-full bg-[#505357] cursor-pointer"></div>
           <div
-            class="w-1.5 h-1.5 rounded-full bg-[#8493A866] cursor-pointer"
-          ></div>
-          <div
-            class="w-1.5 h-1.5 rounded-full bg-[#8493A866] cursor-pointer"
+            v-for="(slide, index) in 3"
+            :key="index"
+            @click="goToSlide(index)"
+            :class="[
+              'rounded-full cursor-pointer transition-all duration-[60ms]',
+              currentSlide === index
+                ? 'w-2 h-2 bg-[#505357]'
+                : 'w-1.5 h-1.5 bg-[#8493A866]',
+            ]"
           ></div>
         </div>
       </div>
@@ -65,7 +95,23 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const currentSlide = ref(0);
+const totalSlides = 3;
+
+const nextSlide = () => {
+  currentSlide.value = (currentSlide.value + 1) % totalSlides;
+};
+
+const previousSlide = () => {
+  currentSlide.value =
+    currentSlide.value === 0 ? totalSlides - 1 : currentSlide.value - 1;
+};
+
+const goToSlide = (index: number) => {
+  currentSlide.value = index;
+};
+</script>
 
 <style scoped>
 .hero-wrapper {

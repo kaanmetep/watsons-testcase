@@ -1,6 +1,6 @@
 <template>
   <div class="w-full p-4 sm:py-10 flex flex-col items-center">
-    <div class="w-full max-w-[1160px] sm:gap-10 flex flex-col">
+    <div class="w-full max-w-[1160px] gap-4 sm:gap-10 flex flex-col">
       <SharedSectionTitle title="Featured products" />
       <div v-if="pending" class="flex justify-center items-center py-8">
         Loading...
@@ -13,7 +13,7 @@
       </div>
       <div
         v-else
-        class="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-10 mt-4 items-stretch"
+        class="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-10 items-stretch"
       >
         <HomeFeaturedProductCard
           v-for="product in data?.products"

@@ -43,7 +43,7 @@
             </div>
           </div>
           <!-- Desktop Avatar Section -->
-          <div class="hidden lg:flex items-center gap-4">
+          <div class="hidden lg:flex items-center gap-4 cursor-pointer">
             <p class="text-[#2A2A48] font-medium text-[14px]">
               <span class="text-[#8493A8] font-normal">Hello</span>, Clara Clara
             </p>

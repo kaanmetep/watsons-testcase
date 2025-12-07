@@ -24,8 +24,7 @@
             width="12"
             height="12"
           />
-          <span
-            class="text-color-secondary text-[12px] font-medium cursor-pointer"
+          <span class="text-secondary text-[12px] font-medium cursor-pointer"
             >Checkout</span
           >
         </nav>
@@ -36,10 +35,10 @@
         </h1>
       </div>
       <div class="max-w-[1160px] mx-auto lg:py-8">
-        <div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-10 items-start">
-          <section
-            class="lg:col-span-2 order-2 lg:order-1 lg:space-y-10 flex-2"
-          >
+        <div
+          class="grid grid-cols-1 lg:grid-cols-[2fr_1fr] lg:gap-14 items-start"
+        >
+          <section class="order-2 lg:order-1 lg:space-y-10">
             <div class="flex flex-col gap-4 lg:gap-8">
               <div
                 class="flex items-center gap-4 p-4 lg:p-0 text-indigo-950 bg-[#ECECEC4D] lg:bg-transparent"
@@ -49,7 +48,7 @@
                   alt="shipping"
                   width="32"
                   height="32"
-                  class="rounded-[4px] border border-[#ECECEC] bg-[#ECECEC4D] p-1"
+                  class="rounded-[4px] border border-[#ECECEC] bg-[#ECECEC4D]"
                 />
                 <h2 class="text-[20px] font-medium text-[#2A2A48]">
                   Shipping details
@@ -122,7 +121,7 @@
                   alt="payment"
                   width="32"
                   height="32"
-                  class="rounded-[4px] border border-[#ECECEC] bg-[#ECECEC4D] p-1"
+                  class="rounded-[4px] border border-[#ECECEC] bg-[#ECECEC4D]"
                 />
                 <h2 class="text-lg font-bold">Payment details</h2>
               </div>
@@ -170,7 +169,7 @@
                             alt="info"
                             width="24"
                             height="24"
-                            class="absolute right-3 top-3 cursor-help pointer-events-none"
+                            class="absolute right-3 top-3 cursor-pointer pointer-events-none"
                           />
                         </template>
                       </SharedInput>
@@ -194,7 +193,7 @@
                 <div
                   class="w-full lg:w-72 shrink-0 lg:mt-14 flex justify-center py-4"
                 >
-                  <div class="relative w-[282px] h-[184px] mr-[64px] lg:mr-0">
+                  <div class="relative w-[282px] h-[184px] mr-[64px] lg:mr-8">
                     <div
                       class="absolute top-3 left-14 w-full h-full bg-white rounded-[12px] border border-[#ECECEC] flex flex-col z-0 translate-x-3 translate-y-3"
                     >
@@ -247,95 +246,98 @@
           </section>
 
           <aside
-            class="lg:col-span-1 order-1 lg:order-2 lg:bg-white lg:bg-transparent rounded-[6px] lg:border lg:border-[#ECECEC] p-6 lg:shadow-[0_4px_16px_0_rgba(42,42,72,0.04)]"
+            class="order-1 lg:order-2 flex flex-col lg:gap-8 p-4 lg:p-0 lg:self-start"
           >
-            <h3 class="text-[20px] font-bold text-[#2A2A48] mb-[16px]">
+            <h3 class="text-[20px] font-bold text-[#2A2A48] px-4 lg:px-0">
               Shopping cart summary
             </h3>
-
-            <div class="space-y-6 mb-6">
-              <div
-                v-for="item in cartItems"
-                :key="item.id"
-                class="flex gap-4 last:border-0 bg-white border border-[#ECECEC] rounded-[4px] shadow-[0_1px_2px_0_rgba(55,65,81,0.08)] items-center"
-              >
+            <div
+              class="lg:bg-white lg:bg-transparent rounded-[6px] lg:border lg:border-[#ECECEC] lg:shadow-[0_4px_16px_0_rgba(42,42,72,0.04)] p-4 lg:p-6"
+            >
+              <div class="space-y-6 mb-6">
                 <div
-                  class="rounded flex items-center justify-center bg-[#ECECEC29] p-4 shrink-0 w-[116px]"
+                  v-for="item in cartItems"
+                  :key="item.id"
+                  class="flex bg-white rounded-[4px] shadow-[0_1px_2px_0_rgba(55,65,81,0.08)] items-center"
                 >
-                  <img
-                    :src="item.image"
-                    :alt="item.name"
-                    class="ratio-3/2 object-contain h-full w-full"
-                  />
-                </div>
-                <div class="flex flex-col gap-2 px-2">
-                  <h4
-                    class="text-[14px] text-[#2A2A48] font-medium font-roboto"
+                  <div
+                    class="rounded flex items-center justify-center bg-[#ECECEC29] p-4 shrink-0 w-[116px] h-[116px]"
                   >
-                    {{ item.name }}
-                  </h4>
-                  <div class="flex justify-between items-center">
-                    <span
-                      class="text-[14px] font-normal text-[#485363] font-roboto"
-                      >{{ item.price.toFixed(2) }} TL</span
+                    <img
+                      :src="item.image"
+                      :alt="item.name"
+                      class="object-contain h-full w-full"
+                    />
+                  </div>
+                  <div class="flex flex-col gap-2 px-2 flex-1">
+                    <h4
+                      class="text-[14px] text-[#2A2A48] font-medium font-roboto"
                     >
-                    <div class="flex items-center gap-2">
-                      <button
-                        @click="updateQuantity(item.id, item.qty - 1)"
-                        class="bg-[#ECECEC4D] rounded-[4px] border border-[#ECECEC] w-6 h-6 flex items-center justify-center"
-                      >
-                        <img
-                          src="/assets/PlusIcon.png"
-                          alt="minus"
-                          width="12"
-                          height="16"
-                        />
-                      </button>
+                      {{ item.name }}
+                    </h4>
+                    <div class="flex justify-between items-center">
                       <span
-                        class="text-[16px] text-[#485363] font-medium font-roboto"
-                        >{{ item.qty }}</span
+                        class="text-[14px] font-normal text-[#485363] font-roboto"
+                        >{{ item.price.toFixed(2) }} TL</span
                       >
-                      <button
-                        @click="updateQuantity(item.id, item.qty + 1)"
-                        class="bg-[#ECECEC4D] rounded-[4px] border border-[#ECECEC] w-6 h-6 flex items-center justify-center"
-                      >
-                        <img
-                          src="/assets/MinusIcon.png"
-                          alt="plus"
-                          width="12"
-                          height="16"
-                        />
-                      </button>
+                      <div class="flex items-center gap-2">
+                        <button
+                          @click="updateQuantity(item.id, item.qty + 1)"
+                          class="bg-white rounded-[4px] border border-[#ECECEC] w-6 h-6 flex items-center justify-center hover:shadow-[0_1px_2px_0_rgba(55,65,81,0.08)] transition-shadow"
+                        >
+                          <img
+                            src="/assets/PlusIcon.png"
+                            alt="plus"
+                            width="12"
+                            height="16"
+                          />
+                        </button>
+                        <span
+                          class="text-[16px] text-[#485363] font-medium font-roboto min-w-[20px] text-center"
+                          >{{ item.qty }}</span
+                        >
+                        <button
+                          @click="updateQuantity(item.id, item.qty - 1)"
+                          class="bg-white rounded-[4px] border border-[#ECECEC] w-6 h-6 flex items-center justify-center hover:shadow-[0_1px_2px_0_rgba(55,65,81,0.08)] transition-shadow"
+                        >
+                          <img
+                            src="/assets/MinusIcon.png"
+                            alt="minus"
+                            width="12"
+                            height="16"
+                          />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="mb-6">
-              <input
-                type="text"
-                placeholder="Discount code"
-                class="w-full h-[48px] border border-[#ECECEC] rounded-[4px] p-4 text-[14px] font-normal font-roboto focus:outline-none focus:ring-1 placeholder:text-[#2A2A4899] placeholder:text-[16px]"
-              />
-            </div>
+              <div class="mb-6">
+                <input
+                  type="text"
+                  placeholder="Discount code"
+                  class="w-full h-[48px] border border-[#ECECEC] rounded-[4px] p-4 text-[14px] font-normal font-roboto focus:outline-none focus:ring-1 placeholder:text-[#2A2A4899] placeholder:text-[16px]"
+                />
+              </div>
 
-            <div
-              class="flex flex-col gap-4 text-[16px] font-medium font-roboto text-[#485363]"
-            >
-              <div class="flex justify-between">
-                <span>Subtotal</span>
-                <span class="font-medium">{{ subtotal.toFixed(2) }} TL</span>
-              </div>
-              <div class="flex justify-between">
-                <span>Shipping</span>
-                <span class="font-medium">{{ shipping.toFixed(2) }} TL</span>
-              </div>
               <div
-                class="flex justify-between border-t border-[#ECECEC] text-[20px] font-bold text-[#2A2A48] pt-4 font-roboto"
+                class="flex flex-col gap-4 text-[16px] font-medium font-roboto text-[#485363]"
               >
-                <span>Total</span>
-                <span>{{ total.toFixed(2) }} TL</span>
+                <div class="flex justify-between">
+                  <span>Subtotal</span>
+                  <span class="font-medium">{{ subtotal.toFixed(2) }} TL</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Shipping</span>
+                  <span class="font-medium">{{ shipping.toFixed(2) }} TL</span>
+                </div>
+                <div
+                  class="flex justify-between border-t border-[#ECECEC] text-[20px] font-bold text-[#2A2A48] pt-4 font-roboto"
+                >
+                  <span>Total</span>
+                  <span>{{ total.toFixed(2) }} TL</span>
+                </div>
               </div>
             </div>
           </aside>
