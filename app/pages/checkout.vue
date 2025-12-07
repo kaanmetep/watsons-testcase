@@ -56,7 +56,7 @@
               </div>
 
               <form class="space-y-4 px-4 lg:px-0 lg:pb-0 pb-4">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-10">
                   <SharedInput
                     label="First Name *"
                     type="text"
@@ -69,7 +69,7 @@
                   />
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-10">
                   <SharedInput
                     label="Email Address *"
                     type="email"
@@ -83,7 +83,7 @@
                   />
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-10">
                   <SharedInput
                     label="City *"
                     type="select"
