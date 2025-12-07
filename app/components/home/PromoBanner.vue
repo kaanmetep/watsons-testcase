@@ -31,7 +31,7 @@
   </div>
   <!-- Banner Section -->
   <div
-    class="banner-bg w-full py-[35px] sm:py-[55px] flex justify-center sm:items-center"
+    class="banner-bg w-full py-[35px] sm:py-[55px] flex justify-center sm:items-center overflow-x-hidden"
   >
     <div class="w-full max-w-[1160px] mx-auto flex justify-center">
       <div
